@@ -91,7 +91,11 @@ int zmk_display_is_initialized() { return initialized; }
 static void initialize_theme() {
 #if IS_ENABLED(CONFIG_LV_USE_THEME_MONO)
     lv_disp_t *disp = lv_disp_get_default();
+#if IS_ENABLED(CONFIG_ZMK_DISPLAY_INVERT)
+    lv_theme_t *theme = lv_theme_mono_init(disp, true, CONFIG_LV_FONT_DEFAULT);
+#else
     lv_theme_t *theme = lv_theme_mono_init(disp, false, CONFIG_LV_FONT_DEFAULT);
+#endif
     theme->font_small = CONFIG_ZMK_LV_FONT_DEFAULT_SMALL;
 
     disp->theme = theme;
