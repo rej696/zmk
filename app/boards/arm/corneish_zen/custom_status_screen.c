@@ -84,7 +84,7 @@ lv_obj_t *zmk_display_status_screen() {
 #endif
 #endif
 
-#if !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
+#if !IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL) || !IS_ENABLED(CONFIG_CUSTOM_WIDGET_LAYER_STATUS)
     lv_obj_t *zenlogo_icon;
     zenlogo_icon = lv_img_create(screen);
   #if IS_ENABLED(CONFIG_CUSTOM_WIDGET_LOGO_IMAGE_ZEN)
